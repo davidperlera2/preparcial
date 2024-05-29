@@ -14,12 +14,13 @@ public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "role_id")
     private UUID id;
 
     private String role;
 
-    //@ManyToMany(mappedBy = "role")
-    //private Set<User> users = new HashSet<>();
+    @ManyToMany(mappedBy = "roles")
+    private Set<User> users = new HashSet<>();
 
     //al parecer aqui van getter y setters lo estudiare luego
 }
