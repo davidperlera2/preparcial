@@ -1,0 +1,19 @@
+spring:
+  sql:
+    init:
+      mode: always
+  application:
+    name: preparcial
+  datasource:
+    url: jdbc:postgresql://localhost:5550/residenciadb
+    username: davidmisael
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        globally_quoted_identifiers: true
+    show-sql: true
+    defer-datasource-initialization: true
