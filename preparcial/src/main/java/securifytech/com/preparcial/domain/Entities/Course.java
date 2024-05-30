@@ -1,12 +1,10 @@
-package securifytech.com.preparcial.Entities;
+package securifytech.com.preparcial.domain.Entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -21,8 +19,8 @@ public class Course {
 
     private String title;
 
-    @ManyToMany(mappedBy = "course")
-    private Set<User> users = new HashSet<>();
+    @ManyToMany(mappedBy = "courses")
+    private List<User> users;
 
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     @JsonIgnore

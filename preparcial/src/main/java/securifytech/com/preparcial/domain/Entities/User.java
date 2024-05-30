@@ -1,15 +1,18 @@
-package securifytech.com.preparcial.Entities;
+package securifytech.com.preparcial.domain.Entities;
 
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
 @Entity
 @Data
+@NoArgsConstructor
 @Table(name = "prparcial_users")
 public class User {
 
@@ -32,7 +35,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private Set<Role> roles = new HashSet<>();
+    private List<Role> roles;
 
     @ManyToMany
     @JoinTable(
@@ -40,14 +43,9 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "course_id")
     )
-    private Set<Course> courses = new HashSet<>();
+    private List<Course> courses;
 
-    @ManyToMany
-    @JoinTable(
-            name = "user_assigment",
-            joinColumns = @JoinColumn(name = "user_assigment"),
-            inverseJoinColumns = @JoinColumn(name = "assigment_id")
-    )
-    private Set<Assigment> assigments = new HashSet<>();
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Assigment> assigments;
 
 }

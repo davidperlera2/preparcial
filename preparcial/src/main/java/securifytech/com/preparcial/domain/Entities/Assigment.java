@@ -1,12 +1,10 @@
-package securifytech.com.preparcial.Entities;
+package securifytech.com.preparcial.domain.Entities;
 
 
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.security.Principal;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -26,6 +24,7 @@ public class Assigment {
     @ManyToOne(fetch = FetchType.EAGER)
     private Course course;
 
-    @ManyToMany(mappedBy = "assigment")
-    private List<User> users;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User user;
 }

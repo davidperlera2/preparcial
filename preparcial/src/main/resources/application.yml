@@ -6,7 +6,7 @@ spring:
     name: preparcial
   datasource:
     url: jdbc:postgresql://localhost:5550/residenciadb
-    username: postgres
+    username: davidmisael
     password: root
   jpa:
     hibernate:

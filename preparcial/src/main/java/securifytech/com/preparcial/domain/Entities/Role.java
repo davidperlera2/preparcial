@@ -1,10 +1,9 @@
-package securifytech.com.preparcial.Entities;
+package securifytech.com.preparcial.domain.Entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -20,7 +19,7 @@ public class Role {
     private String role;
 
     @ManyToMany(mappedBy = "roles")
-    private Set<User> users = new HashSet<>();
+    private List<User> users;
 
     //al parecer aqui van getter y setters lo estudiare luego
 }

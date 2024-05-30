@@ -1,4 +1,4 @@
-package securifytech.com.preparcial.Entities;
+package securifytech.com.preparcial.domain.Entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
