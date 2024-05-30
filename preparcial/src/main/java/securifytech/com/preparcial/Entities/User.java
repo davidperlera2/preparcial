@@ -34,4 +34,20 @@ public class User {
     )
     private Set<Role> roles = new HashSet<>();
 
+    @ManyToMany
+    @JoinTable(
+            name = "user_courses",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id")
+    )
+    private Set<Course> courses = new HashSet<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_assigment",
+            joinColumns = @JoinColumn(name = "user_assigment"),
+            inverseJoinColumns = @JoinColumn(name = "assigment_id")
+    )
+    private Set<Assigment> assigments = new HashSet<>();
+
 }
