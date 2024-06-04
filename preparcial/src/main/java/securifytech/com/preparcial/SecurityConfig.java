@@ -1,4 +1,4 @@
-package securifytech.com.preparcial.utils;
+package securifytech.com.preparcial;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
